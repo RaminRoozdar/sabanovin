@@ -1,0 +1,1 @@
+{{ getCategorystatus($status) }}
