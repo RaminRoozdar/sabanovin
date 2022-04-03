@@ -75765,6 +75765,9 @@ $(document).ready(function () {
   $('.price').mask('#.##0', {
     reverse: true
   });
+  $('.price1').mask('#.##0', {
+    reverse: true
+  });
   $(".postTag").select2({
     tags: true,
     tokenSeparators: [',', ' '],

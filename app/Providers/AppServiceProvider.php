@@ -29,10 +29,10 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
-        // $menus = Category::select('*')
-        //         ->where('category_id', '=', 0)
-        //         ->where('type', '=', 1)
-        //         ->get();
-        // View::share('menus',$menus);
+        $menus = Category::select('*')
+                ->where('category_id', '=', 0)
+                ->where('type', '=', 1)
+                ->get();
+        View::share('menus',$menus);
     }
 }

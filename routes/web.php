@@ -19,8 +19,16 @@ Auth::routes();
 Route::get('/', 'Frontend\HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home.welcome');
 
+
+
 Route::group(['namespace' => 'Frontend'], function () {
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+
+    //installments
+    Route::get('/installments', 'HomeController@installments')->name('installments');
+    Route::post('/installments', 'HomeController@computing')->name('computing');
+
 
     //user
     Route::get('/user/profile', 'UserController@profile')->name('user.profile');
