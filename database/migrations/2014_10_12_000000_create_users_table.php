@@ -33,7 +33,7 @@ class CreateUsersTable extends Migration
             'mobile' => '9337288808',
             'level' => 'admin',
             'active' => 'yes',
-            'password' => Hash::make('123456789'),
+            'password' => Hash::make('********'),
         ]);
         DB::table('users')->insert([
             'name' => 'فرزاد روزدار',
@@ -41,7 +41,7 @@ class CreateUsersTable extends Migration
             'mobile' => '9129342383',
             'level' => 'admin',
             'active' => 'yes',
-            'password' => Hash::make('123456789'),
+            'password' => Hash::make('********'),
         ]);
     }
 

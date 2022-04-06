@@ -30,7 +30,7 @@ class HomeController extends Controller
         $prepayment = replaceDecimalDot($request->prepayment);
         $count = $request->count;
         $left_over = $cash_price - $prepayment;
-        $monthly_profit = ($prepayment * 0.04);
+        $monthly_profit = ($left_over * 0.04);
         $total = $left_over + ($monthly_profit * $count);
         $check_price = $total / $count;
 
