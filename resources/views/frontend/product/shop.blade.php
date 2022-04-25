@@ -46,7 +46,7 @@
                             @foreach(session('cart') as $id => $details)
                                 <div class="row cart-detail">
                                     <div class="col-lg-4 col-sm-4 col-4 cart-detail-img">
-                                        <img width="85px" height="85px" src="/app/images/product/{{ $details['image'] }}" />
+                                        <img width="85px" height="85px" src="{{ Storage::url($details['image'])}}" />
                                     </div>
                                     <div class="col-lg-8 col-sm-8 col-8 cart-detail-product">
                                         <p>{{ $details['title'] }}</p>
@@ -72,7 +72,7 @@
             <div class="row justify-content-center">
                 @foreach($products as $product)
                 <div class="card mb-3 m-1" style="width: 18rem;">
-                    <img height="150" class="card-img-top"  src="/app/images/product/{{ $product->image }}" alt="Card image cap">
+                    <img height="150" class="card-img-top"  src="{{ Storage::url($product->image) }}" alt="Card image cap">
                     <div class="card-body p-1 pt-2">
                       <h1 class="h5 card-title"><a class="nav-link p-0" href="{{ route('product.view',['id'=>$product->id]) }}">{{$product->title}}</a></h1>
                     </div>

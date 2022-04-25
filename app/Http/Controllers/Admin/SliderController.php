@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Slider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SliderController extends Controller
 {
@@ -33,7 +34,7 @@ class SliderController extends Controller
         $item->link = $request->link;
         if ($request->hasFile('image')) {
             $imageName = time().'.'.$request->image->getClientOriginalExtension();
-            $request->image->move(public_path('app\images\slider'), $imageName);
+            $imageName = $request->file('image')->store('public/slider');
             $item->image = $imageName;
         }
         $item->save();
@@ -67,11 +68,10 @@ class SliderController extends Controller
         $item->title = $request->title;
         $item->link = $request->link;
         if($request->hasFile('image')) {
-            $image_path = public_path().'/app/images/slider/'.$item->image;
-            unlink($image_path);
-            $imageName = time().'.'.$request->image->getClientOriginalExtension();
-            $request->image->move(public_path('app\images\slider'), $imageName);
-            $item->image = $imageName;
+            Storage::delete($item->image);
+           $imageName = time().'.'.$request->image->getClientOriginalExtension();
+           $imageName = $request->file('image')->store('public/slider');
+           $item->image = $imageName;
         }
         $item->save();
         session()->flash('color', 'success');

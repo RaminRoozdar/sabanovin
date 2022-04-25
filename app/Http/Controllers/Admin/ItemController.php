@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Item;
 use App\Models\Tag;
+use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 
 class ItemController extends Controller
@@ -45,7 +46,7 @@ class ItemController extends Controller
         $item->slug = $request->slug;
         if ($request->hasFile('image')) {
             $imageName = time().'.'.$request->image->getClientOriginalExtension();
-            $request->image->move(public_path('app\images\item'), $imageName);
+            $imageName = $request->file('image')->store('public/item');
             $item->image = $imageName;
         }
         $item->save();
@@ -105,11 +106,11 @@ class ItemController extends Controller
         $item->description = $request->description;
         $item->slug = $request->slug;
         if($request->hasFile('image')) {
-            $image_path = public_path().'/app/images/item/'.$item->image;
-            unlink($image_path);
+            Storage::delete($item->image);
             $imageName = time().'.'.$request->image->getClientOriginalExtension();
-            $request->image->move(public_path('app\images\item'), $imageName);
+            $imageName = $request->file('image')->store('public/item');
             $item->image = $imageName;
+            $item->save();
         }
         $item->save();
         $tags = $request->input('postTags');

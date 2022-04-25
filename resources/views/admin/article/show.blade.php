@@ -67,7 +67,7 @@
 
 	                        </div>
                             <div class="col-md-8">
-                               <img class="w-100"  src="/app/images/{{ $item->image }}" />
+                               <img class="w-100"  src="{{ Storage::url($item->image) }}" />
                             </div>
 
                         </div>

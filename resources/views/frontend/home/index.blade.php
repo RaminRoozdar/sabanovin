@@ -31,7 +31,7 @@
             rc.src = w.__danachat_host_url + w.__danachat_app_base_url + 'dpx/chat/chat.embed.min.js';
             var s = d.getElementsByTagName('script')[0];s.parentNode.insertBefore(rc, s);
         })(document, window);
-    </script>         
+    </script>
 
 </head>
 
@@ -105,7 +105,7 @@
                         @foreach( $sliders as $slider )
                             <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
                                 <a href="{{ $slider->link }}">
-                                    <img class="d-block w-100 rounded" src="/app/images/slider/{{ $slider->image }}" alt="{{ $slider->title }}">
+                                    <img class="d-block w-100 rounded" src="{{ Storage::url($slider->image) }}" alt="{{ $slider->title }}">
                                     <div class="carousel-caption">
                                         <p class="text-white text-md-center">{{ $slider->title }}</p>
                                     </div>
@@ -205,7 +205,7 @@
                                 <div class="owl-item cloned" style="width: 307.99px;">
                                     <div class="testimonials-item">
                                       <div class="d-flex align-items-center">
-                                          <img src="/app/images/feedback/{{ $feed->image }}" alt="ونسان ونگوگ" class="testimonials-item-image m-3">
+                                          <img src="{{ Storage::url($feed->image) }}" alt="{{ $feed->name }}" class="testimonials-item-image m-3">
                                           <h2 class="testimonials-item-title m-0">{{  $feed->name }}</h2>
                                       </div>
                                            <p class="testimonials-item-description m-3">{{ $feed->comment }}</p>
@@ -235,7 +235,7 @@
                          @foreach ($customers as $customer)
                                 <div class="item border border-warning rounded m15">
 
-                                      <a href="{{ $customer->link }}" target="_blank"><img class="p-2" width="100" height="150" src="/app/images/customer/{{ $customer->image }}" alt="{{ $customer->title }}" ></a>
+                                      <a href="{{ $customer->link }}" target="_blank"><img class="p-2" width="100" height="150" src="{{ Storage::url($customer->image) }}" alt="{{ $customer->title }}" ></a>
 
                                </div>
                          @endforeach

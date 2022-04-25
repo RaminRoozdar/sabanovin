@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CustomerController extends Controller
 {
@@ -38,7 +39,7 @@ class CustomerController extends Controller
         $item->link = $request->link;
         if ($request->hasFile('image')) {
             $imageName = time().'.'.$request->image->getClientOriginalExtension();
-            $request->image->move(public_path('app\images\customer'), $imageName);
+            $imageName = $request->file('image')->store('public/customer');
             $item->image = $imageName;
         }
         $item->save();
@@ -72,11 +73,11 @@ class CustomerController extends Controller
         $item->title = $request->title;
         $item->link = $request->link;
         if($request->hasFile('image')) {
-            $image_path = public_path().'/app/images/customer/'.$item->image;
-            unlink($image_path);
+            Storage::delete($item->image);
             $imageName = time().'.'.$request->image->getClientOriginalExtension();
-            $request->image->move(public_path('app\images\customer'), $imageName);
+            $imageName = $request->file('image')->store('public/customer');
             $item->image = $imageName;
+            $item->save();
         }
         $item->save();
         session()->flash('color', 'success');

@@ -30,7 +30,7 @@
                       @foreach ($items as $item)
                                 <div class="item border border-warning rounded m15">
 
-                                      <a href="{{ $item->link }}" target="_blank"><img class="p-2" width="150" height="150" src="/app/images/customer/{{ $item->image }}" alt="{{ $item->title }}" ></a>
+                                      <a href="{{ $item->link }}" target="_blank"><img class="p-2" width="150" height="150" src="{{ Storage::url($item->image) }}" alt="{{ $item->title }}" ></a>
 
                                </div>
                       @endforeach

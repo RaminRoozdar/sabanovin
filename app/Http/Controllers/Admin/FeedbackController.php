@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Feedback;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FeedbackController extends Controller
 {
@@ -33,7 +34,7 @@ class FeedbackController extends Controller
         $item->comment = $request->comment;
         if ($request->hasFile('image')) {
             $imageName = time().'.'.$request->image->getClientOriginalExtension();
-            $request->image->move(public_path('app\images\feedback'), $imageName);
+            $imageName = $request->file('image')->store('public/feedback');
             $item->image = $imageName;
         }
         $item->save();
@@ -67,11 +68,11 @@ class FeedbackController extends Controller
         $item->name = $request->name;
         $item->comment = $request->comment;
         if($request->hasFile('image')) {
-            $image_path = public_path().'/app/images/feedback/'.$item->image;
-            unlink($image_path);
+            Storage::delete($item->image);
             $imageName = time().'.'.$request->image->getClientOriginalExtension();
-            $request->image->move(public_path('app\images\feedback'), $imageName);
+            $imageName = $request->file('image')->store('public/customer');
             $item->image = $imageName;
+            $item->save();
         }
         $item->save();
         session()->flash('color', 'success');

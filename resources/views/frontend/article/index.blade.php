@@ -32,7 +32,7 @@
 
 								<div class="blog-post-image blog-compact-post-image mr-3">
 									<a href="{{ route('articleView',['id' => $article->id , 'slug' => $article->slug]) }}" class="blog-post-image-link blog-compact-post-image-link">
-										<img src="/app/images/{{ $article->image }}" class="img-fluid center-block blog-post-image-element blog-compact-post-image-element" alt="نوشته&zwnj;ی وبلاگی" itemprop="image">
+										<img src="{{ Storage::url($article->image) }}" class="img-fluid center-block blog-post-image-element blog-compact-post-image-element" alt="نوشته&zwnj;ی وبلاگی" itemprop="image">
 									</a>
 								</div>
 

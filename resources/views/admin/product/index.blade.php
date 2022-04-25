@@ -28,7 +28,7 @@
            <div class="card">
             <div class="card-body col-md-12 row">
                 <div class="col-md-4">
-                    <img width="100" height="100" src="/app/images/product/{{ $item->image }}" alt="">
+                    <img width="100" height="100" src="{{ Storage::url($item->image) }}" alt="">
                 </div>
 
                 <div class="col-md-4">

@@ -30,7 +30,7 @@
                       <h1 class="h3 form-horizontal-title">مطلب {{ $article->title }}</h1>
                       <hr>  --}}
 
-                      <img class="w-100" height="300" src="/app/images/{{ $article->image }}" alt="{{ $article->title }}">
+                      <img class="w-100" height="300" src="{{ Storage::url($article->image) }} alt="{{ $article->title }}">
                       <h1 class="mt-4 h3 form-horizontal-title">مطلب {{ $article->title }}</h1>
 
                       <p style="font-size: 12px" class="mt-4 text-muted">

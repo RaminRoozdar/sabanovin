@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 
 class ProductController extends Controller
@@ -39,7 +40,7 @@ class ProductController extends Controller
         $product->amount = replaceDecimalDot($request->amount);
         if ($request->hasFile('image')) {
             $imageName = time().'.'.$request->image->getClientOriginalExtension();
-            $request->image->move(public_path('app\images\product'), $imageName);
+            $imageName = $request->file('image')->store('public/product');
             $product->image = $imageName;
         }
         $product->save();
@@ -105,11 +106,11 @@ class ProductController extends Controller
         $product->count = $request->count;
         $product->amount = replaceDecimalDot($request->amount);
         if($request->hasFile('image')) {
-            $image_path = public_path().'/app/images/product/'.$product->image;
-            unlink($image_path);
+            Storage::delete($product->image);
             $imageName = time().'.'.$request->image->getClientOriginalExtension();
-            $request->image->move(public_path('app\images\product'), $imageName);
+            $imageName = $request->file('image')->store('public/product');
             $product->image = $imageName;
+            $product->save();
         }
         $product->save();
         $tags = $request->input('postTags');

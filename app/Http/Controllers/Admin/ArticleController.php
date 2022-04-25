@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic as Image;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -56,7 +57,7 @@ class ArticleController extends Controller
         $article->user_id = Auth::user()->id;
         if ($request->hasFile('image')) {
             $imageName = time().'.'.$request->image->getClientOriginalExtension();
-            $request->image->move(public_path('app\images'), $imageName);
+            $imageName = $request->file('image')->store('public/article');
             $article->image = $imageName;
         }
         $article->save();
@@ -105,10 +106,9 @@ class ArticleController extends Controller
         'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     ]);
     $item = Article::findOrFail($id);
-    $image_path = public_path().'/app/images/'.$item->image;
-    unlink($image_path);
+    Storage::delete($item->image);
     $imageName = time().'.'.$request->image->getClientOriginalExtension();
-    $request->image->move(public_path('app\images'), $imageName);
+    $imageName = $request->file('image')->store('public/article');
     $item->image = $imageName;
     $item->save();
     session()->flash('color', 'success');
