@@ -6,6 +6,7 @@
     <a class="list-group-item list-group-item-action{{ Request::segment(2) == 'article' ? ' active' : '' }}" href="{{route('admin.article')}}"><i class="fa fa-file"></i> مقالات </a>
     <a class="list-group-item list-group-item-action{{ Request::segment(2) == 'item' ? ' active' : '' }}" href="{{route('admin.item')}}"><i class="fa fa-newspaper-o"></i> اخبار </a>
     <a class="list-group-item list-group-item-action{{ Request::segment(2) == 'customer' ? ' active' : '' }}" href="{{route('admin.customer')}}"><i class="fa fa-users"></i> مشتریان </a>
+    <a class="list-group-item list-group-item-action{{ Request::segment(2) == 'customer' ? ' active' : '' }}" href="{{route('admin.page')}}"><i class="fa fa-page"></i> صفحه ها </a>
     <a class="list-group-item list-group-item-action{{ Request::segment(2) == 'setting' ? ' active' : '' }}" href="{{route('admin.setting')}}"><i class="fa fa-cog fa-spin"></i> تنظیمات </a>
 
 
@@ -21,6 +22,7 @@
         <a class="nav-link{{ Request::segment(2) == 'article' ? ' active' : '' }}" href="{{route('admin.article')}}"><i class="fa fa-file"></i> مقالات </a>
         <a class="nav-link{{ Request::segment(2) == 'item' ? ' active' : '' }}" href="{{route('admin.item')}}"><i class="fa fa-newspaper-o"></i> اخبار </a>
         <a class="nav-link{{ Request::segment(2) == 'customer' ? ' active' : '' }}" href="{{route('admin.customer')}}"><i class="fa fa-users"></i> مشتریان </a>
+        <a class="nav-link{{ Request::segment(2) == 'customer' ? ' active' : '' }}" href="{{route('admin.page')}}"><i class="fa fa-page"></i> صفحه ها </a>
         <a class="nav-link{{ Request::segment(2) == 'setting' ? ' active' : '' }}" href="{{route('admin.setting')}}"><i class="fa fa-cog fa-spin"></i> تنظیمات </a>
     </nav>
 </div>

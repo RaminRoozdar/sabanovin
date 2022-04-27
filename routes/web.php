@@ -35,7 +35,8 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::post('/user/profile', 'UserController@store')->name('user.profile.store');
     Route::post('/cities', 'UserController@cities')->name('cities');
 
-
+    Route::get('/page/{id}', 'PageController@index')->name('page');
+    Route::get('/page/{id}/{slug}', 'PageController@slug')->name('page-slug');
     Route::get('/contact-us', 'ContactController@index')->name('contact');
     Route::get('/blog', 'ArticleController@index')->name('articles');
     Route::get('/items', 'ItemController@items')->name('items');
@@ -147,6 +148,17 @@ Route::group(['middleware' => 'admin','namespace' => 'Admin'], function () {
     Route::get('/admin/product/edit/{id}', 'ProductController@edit')->name('admin.product.edit');
     Route::post('/admin/product/update/{id}', 'ProductController@update')->name('admin.product.update');
     Route::delete('/admin/product/disable/{id}', 'ProductController@disable')->name('admin.product.disable');
+
+
+    //page
+    Route::get('/admin/page', 'PageController@index')->name('admin.page');
+    Route::get('/admin/page/data', 'PageController@data')->name('admin.page.data');
+    Route::get('/admin/page/edit/{id}', 'PageController@edit')->name('admin.page.edit');
+    Route::post('/admin/page/update/{id}', 'PageController@update')->name('admin.page.update');
+    Route::get('/admin/page/create', 'PageController@create')->name('admin.page.create');
+    Route::post('/admin/page/insert', 'PageController@insert')->name('admin.page.insert');
+    Route::delete('/admin/page/delete/{id}', 'PageController@delete')->name('admin.page.delete');
+
 
 
 
