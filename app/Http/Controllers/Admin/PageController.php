@@ -16,7 +16,7 @@ class PageController extends Controller
 
     public function data()
     {
-        return DataTables::eloquent(Page::select(['id','title'])->orderBy('created_at', 'desc'))
+        return DataTables::eloquent(Page::select(['id','title','link','slug'])->orderBy('created_at', 'desc'))
             ->addColumn('action', 'admin.page.action')
             ->make(true);
     }
@@ -44,6 +44,7 @@ class PageController extends Controller
         $page->title = $request->title;
         $page->description = $request->description;
         $page->slug = $request->slug;
+        $page->link = $request->link;
         $page->text = $request->text;
         $page->access = $request->access;
         $page->save();
@@ -66,6 +67,7 @@ class PageController extends Controller
         $page->text = $request->text;
         $page->access = $request->access;
         $page->slug = $request->slug;
+        $page->link = $request->link;
         $page->save();
         session()->flash('color', 'success');
         session()->flash('message', 'صفحه با موفقیت ویرایش شد.');

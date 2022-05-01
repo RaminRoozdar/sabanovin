@@ -35,7 +35,7 @@
                         @method('post')
                         <div class="form-group">
                             <label for="title">عنوان</label>
-                                <input id="title" type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" value="{{ old('title', $page->title) }}" required autofocus>
+                                <input id="title" type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" value="{{ old('title', $page->title) }}"  autofocus>
 
                                 @if ($errors->has('title'))
                                     <span class="invalid-feedback">
@@ -45,10 +45,19 @@
                         </div>
                         <div class="form-group">
                             <label for="title">لینک Slug</label>
-                            <input id="slug" type="text" class="form-control{{ $errors->has('slug') ? ' is-invalid' : '' }}" name="slug" value="{{ old('slug', $page->slug) }}" required>
+                            <input id="slug" type="text" class="form-control{{ $errors->has('slug') ? ' is-invalid' : '' }}" name="slug" value="{{ old('slug', $page->slug) }}" >
                             @if ($errors->has('slug'))
                                 <span class="invalid-feedback">
                                     <strong>{{ $errors->first('slug') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <label for="title">لینک اختصاصی</label>
+                            <input id="link" type="url" dir="ltr" class="form-control{{ $errors->has('link') ? ' is-invalid' : '' }}" name="link" value="{{ old('link',$page->link) }}" >
+                            @if ($errors->has('link'))
+                                <span class="invalid-feedback">
+                                    <strong>{{ $errors->first('link') }}</strong>
                                 </span>
                             @endif
                         </div>
