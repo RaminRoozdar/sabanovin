@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Invoice;
+use App\Models\InvoiceItems;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
 
 class UserController extends Controller
@@ -20,4 +23,5 @@ class UserController extends Controller
             ->addColumn('action', 'admin.user.action')
             ->make(true);
     }
+
 }

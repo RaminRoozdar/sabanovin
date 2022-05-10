@@ -2,6 +2,9 @@
 
 namespace App;
 
+use App\Models\City;
+use App\Models\Invoice;
+use App\Models\Province;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -41,4 +44,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Article::class , 'user_id');
     }
+
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
+    public function province()
+    {
+        return $this->belongsTo(Province::class);
+    }
+
 }

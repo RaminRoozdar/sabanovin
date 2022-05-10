@@ -35,7 +35,7 @@
                             <br />
                             کد پیگیری پرداخت :  {{ $trackingCode }}
                             <br />
-                            <a class="nav-link" href="{{ route('order.tracking') }}">لینک پیگیری سفارش</a>
+                            {{--  <a class="nav-link" href="{{ route('order.tracking') }}">لینک پیگیری سفارش</a>  --}}
 
                         </div>
                         <br />   <br />   <br />   <br />   <br />   <br />

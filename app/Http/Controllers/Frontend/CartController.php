@@ -123,6 +123,7 @@ class CartController extends Controller
             if ($isOk == 1){
                 $invoice=new Invoice();
                 $invoice->user_id = Auth()->user()->id;
+                $invoice->status = 'pending';
                 $invoice->save();
                 $cart = session()->get('cart');
                 foreach($cart as $details)

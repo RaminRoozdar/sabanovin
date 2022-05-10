@@ -31,9 +31,13 @@ Route::group(['namespace' => 'Frontend'], function () {
 
 
     //user
+    Route::get('/user/invoice', 'UserController@invoice')->name('user.invoice');
+    Route::get('/user/invoice/show/{id}', 'UserController@invoiceShow')->name('user.invoice.show');
     Route::get('/user/profile', 'UserController@profile')->name('user.profile');
     Route::post('/user/profile', 'UserController@store')->name('user.profile.store');
     Route::post('/cities', 'UserController@cities')->name('cities');
+
+
 
     Route::get('/page/{id}', 'PageController@index')->name('page');
     Route::get('/page/{id}/{slug}', 'PageController@slug')->name('page-slug');
@@ -158,6 +162,13 @@ Route::group(['middleware' => 'admin','namespace' => 'Admin'], function () {
     Route::get('/admin/page/create', 'PageController@create')->name('admin.page.create');
     Route::post('/admin/page/insert', 'PageController@insert')->name('admin.page.insert');
     Route::delete('/admin/page/delete/{id}', 'PageController@delete')->name('admin.page.delete');
+
+
+        //invoice
+        Route::get('/admin/invoice', 'InvoiceController@index')->name('admin.invoice');
+        Route::get('/admin/invoice/data', 'InvoiceController@data')->name('admin.invoice.data');
+        Route::get('/admin/invoice/show/{id}', 'InvoiceController@show')->name('admin.invoice.show');
+        Route::post('/admin/invoice/update/{id}', 'InvoiceController@update')->name('admin.invoice.update');
 
 
 
