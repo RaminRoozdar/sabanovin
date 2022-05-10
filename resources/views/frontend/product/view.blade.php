@@ -94,7 +94,6 @@
                                 <div class="card-header">
                                     <ul class="nav nav-tabs card-header-tabs" id="file-tabs" role="tablist">
                                         <li class="nav-item"><a class="nav-link active" id="text" data-toggle="tab" href="#file-text" role="tab" aria-controls="text" aria-selected="true">توضیحات</a></li>
-                                        <li class="nav-item"><a class="nav-link" id="versions" data-toggle="tab" href="#file-versions" role="tab" aria-controls="versions" aria-selected="false">مشخصات</a></li>
                                     </ul>
                                 </div>
                                 <div class="card-body">

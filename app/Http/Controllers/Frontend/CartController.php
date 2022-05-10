@@ -138,7 +138,7 @@ class CartController extends Controller
                     $product->save();
 
                 }
-
+                session()->forget('cart');
             }
             return view('frontend.shop.callback', compact( 'msg','isOk' , 'trackingCode'));
         } catch (IrankishException $e) {

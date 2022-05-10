@@ -76,7 +76,7 @@
                         <div class="form-group row">
                            <label for="description" class="col-md-4 col-form-label label-form">توضیحات محصول</label>
                            <div class="col-md-12" dir="rtl">
-                                <textarea id="mytextarea" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description">{{ old('description') }}</textarea>
+                                <textarea id="full-featured-non-premium" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description">{{ old('description') }}</textarea>
 
                                     @if ($errors->has('description'))
                                         <span class="invalid-feedback">
@@ -116,14 +116,5 @@
 @section('js')
 <script src="https://cdn.tiny.cloud/1/8osgbipvk7fz28bszcjpwtnjjj2iepb33l5miotgjhpgao0t/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
-<script>
-    tinymce.init({
-        selector: '#mytextarea',
-        tinycomments_mode: 'embedded',
-        tinycomments_author: 'raminroozdar',
-        directionality : "rtl",
-        language_url : '/languages/fa.js'
-      });
-</script>
-
+<script src="{{ asset('js/tiny.js') }}"></script>
 @endsection
