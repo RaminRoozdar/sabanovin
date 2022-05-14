@@ -43,14 +43,14 @@
              <div class="row">
                 <div class="col">
                     <a class="nav-link" href="/">
-                      <img src="{{asset('img/logo.png')}}" alt="{{ settings()->get('SITE_TITLE') }}"></img>
-                      <h2 class="text-info m-0 d-inline h5">{{ settings()->get('SITE_TITLE') }}</h2>
+                      <img height="60" width="150" src="{{asset('img/logo/logok.png')}}" alt="{{ settings()->get('SITE_TITLE') }}"></img>
+                      {{--  <h2 class="text-info m-0 d-inline h5">{{ settings()->get('SITE_TITLE') }}</h2>  --}}
                     </a>
                 </div>
                 <div class="col">
                    <div dir="ltr" class="d-none d-lg-block float-left">
                     <div class="col-md-12 mt-3">
-                 &nbsp;<a class="btn btn-sm btn-warning btn-contact" data-toggle="tooltip"  data-placement="top" title="برای تماس کلیک کنید" href="tel:09129342383">
+                 &nbsp;<a class="btn btn-sm btn-warning btn-contact" data-toggle="tooltip"  data-placement="top" title="برای تماس کلیک کنید" href="tel:90002009">
                           <i class="fa fa-phone align-middle text-white"></i>
                        </a>
                        <span class="text-info span-contact" style="font-size:14px;"> <small class="text-muted">تماس رایگان</small> {{ toFarsiNumber(settings()->get('SUPPORT_TEL')) }}</span>
@@ -85,7 +85,12 @@
                       &nbsp;
                       <a href="{{route('login')}}" class="btn btn-sm btn-warning">
                         <i class="fa fa-user-o text-white"></i>
-                     </a>
+                      </a>
+                      @else
+                      &nbsp;
+                      <a href="{{route('dashboard')}}" class="btn btn-sm btn-warning">
+                        <i class="fa fa-user-o text-white"></i>
+                      </a>
                       @endguest
                       &nbsp;<a class="btn btn-sm btn-warning">
                         <i class="fa fa-shopping-cart align-middle text-white"></i>

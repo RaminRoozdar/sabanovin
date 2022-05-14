@@ -40,7 +40,7 @@
                                         {{ $item->quantity }}
                                     </td>
                                     <td class="text-center">
-                                        {{number_format($item->product->amount)}}
+                                        {{number_format($item->amount)}}
                                     </td>
 
                                 </tr>

@@ -65,7 +65,7 @@ class UserController extends Controller
         $items = InvoiceItems::with('product')->where('invoice_id', $id)->get();
         foreach($items as $item)
         {
-            $total += $item->product->amount * $item->quantity;
+            $total += $item->amount * $item->quantity;
         }
         return view('frontend.invoice.show' , compact('items','invoice','total'));
     }

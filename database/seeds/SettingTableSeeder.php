@@ -16,8 +16,8 @@ class SettingTableSeeder extends Seeder
         settings()->set('SITE_TITLE', 'پرداخت یار صبانوین');
         settings()->set('SITE_DESCRIPTION', 'خدمات تخصصی وب سرویس پیام کوتاه');
         settings()->set('SITE_URL', 'sms.sabanovin.com');
-        settings()->set('SITE_URI', 'http://sms.sabanovin.com');
-        settings()->set('SITE_URI_SSL', 'https://sms.sabanovin.com');
+        settings()->set('SITE_URI', 'http://sabanovin.com');
+        settings()->set('SITE_URI_SSL', 'https://sabanovin.com');
         settings()->set('SUPPORT_TEL', '07132922');
         settings()->set('FAX', '07132922-2');
         settings()->set('ZIP_CODE', '71345/1135');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\SendOrderSms;
 use App\Models\City;
 use App\Models\Invoice;
 use App\Models\InvoiceItems;
@@ -132,12 +133,14 @@ class CartController extends Controller
                     $invoice_item->invoice_id = $invoice->id;
                     $invoice_item->product_id = $details['id'];
                     $invoice_item->quantity = $details['quantity'];
+                    $invoice_item->amount = $details['amount'];
                     $invoice_item->save();
                     $product = Product::findOrFail($details['id']);
                     $product->count -= $details['quantity'];
                     $product->save();
 
                 }
+                SendOrderSms::dispatch($invoice)->onQueue('default');
                 session()->forget('cart');
             }
             return view('frontend.shop.callback', compact( 'msg','isOk' , 'trackingCode'));

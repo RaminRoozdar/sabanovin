@@ -166,7 +166,12 @@ Route::group(['middleware' => 'admin','namespace' => 'Admin'], function () {
 
         //invoice
         Route::get('/admin/invoice', 'InvoiceController@index')->name('admin.invoice');
-        Route::get('/admin/invoice/data', 'InvoiceController@data')->name('admin.invoice.data');
+        Route::get('/admin/invoice/pendding', 'InvoiceController@pendding')->name('admin.invoice.pendding');
+        Route::get('/admin/invoice/penddingData', 'InvoiceController@penddingData')->name('admin.invoice.penddingData');
+        Route::get('/admin/invoice/paid', 'InvoiceController@paid')->name('admin.invoice.paid');
+        Route::get('/admin/invoice/paidData', 'InvoiceController@paidData')->name('admin.invoice.paidData');
+        Route::get('/admin/invoice/posted', 'InvoiceController@posted')->name('admin.invoice.posted');
+        Route::get('/admin/invoice/postedData', 'InvoiceController@postedData')->name('admin.invoice.postedData');
         Route::get('/admin/invoice/show/{id}', 'InvoiceController@show')->name('admin.invoice.show');
         Route::post('/admin/invoice/update/{id}', 'InvoiceController@update')->name('admin.invoice.update');
 

@@ -5,7 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">داشبورد من</div>
+                <div class="card-header">داشبورد من
+                    @if(Auth::user()->level == 'admin')
+                    <a class="btn btn-sm btn-danger float-left" href="{{ route('admin.dashboard') }}" ><i class="fa fa-cogs"></i>   رفتن به پنل مدیریت  </a>
+                    @endif
+                </div>
 
                 <div class="card-body">
                     <div class="row justify-content-center">

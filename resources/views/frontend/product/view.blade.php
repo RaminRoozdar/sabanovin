@@ -6,7 +6,13 @@
 محصول {{ $product->title }}
 @stop
 
-
+@section('head')
+    <meta name="product_id" content="{{ $product->id }}" />
+    <meta name="product_name" content="{{ $product->title }}" />
+    <meta name="product_price" content="{{number_format($product->amount)}}" />
+    <meta property="og:image" content="{{ Storage::url($product->image) }}" />
+    <meta name="availability" content="{{ $product->count > 0 ? 'instock' : 'outofstock' }}" />
+@endsection
 
 @section('content')
    <div class="container-fluid">
@@ -57,7 +63,8 @@
                                                     <div class="col-lg-8 col-sm-8 col-8 cart-detail-product">
                                                         <p>{{ $details['title'] }}</p>
                                                         <span class="count"> تعداد:{{ $details['quantity'] }}</span>
-                                                        <p class="price text-info"> {{ $details['amount'] }}  تومان </p>
+                                                        <p class="price text-info"> {{ number_format($details['amount']) }}
+                                                            تومان </p>
                                                     </div>
                                                 </div>
                                             @endforeach

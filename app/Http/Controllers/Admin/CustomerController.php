@@ -29,7 +29,7 @@ class CustomerController extends Controller
     {
         $request->validate([
             'title' => 'required|string',
-            'link' => 'required|string',
+            //'link' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
         ]);
@@ -60,13 +60,13 @@ class CustomerController extends Controller
         if($request->image == 'image') {
             $request->validate([
                 'title' => 'required|string',
-                'link' => 'required|string',
+                //'link' => 'required|string',
                 'image' => 'mimes:jpeg,jpg,png,gif|required|max:1000',
             ]);
         } else {
             $request->validate([
                 'title' => 'required|string',
-                'link' => 'required|string',
+                //'link' => 'required|string',
             ]);
         }
         $item = Customer::findOrFail($id);

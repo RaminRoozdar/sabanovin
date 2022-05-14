@@ -15,10 +15,36 @@ class InvoiceController extends Controller
     {
         return view('admin.invoice.index');
     }
-
-    public function data()
+    public function pendding()
     {
-        return DataTables::eloquent(Invoice::with('user')->orderBy('created_at', 'desc')->select(['id','user_id','created_at']))
+        return view('admin.invoice.pendding');
+    }
+    public function penddingData()
+    {
+        return DataTables::eloquent(Invoice::with('user')->where('status' , 'pending')->orderBy('created_at', 'desc')->select(['id','user_id','created_at']))
+        ->addColumn('action', 'admin.invoice.action')
+        ->addColumn('title', 'admin.invoice.title')
+        ->make(true);
+    }
+
+    public function paid()
+    {
+        return view('admin.invoice.paid');
+    }
+    public function paidData()
+    {
+        return DataTables::eloquent(Invoice::with('user')->where('status' , 'paid')->orderBy('created_at', 'desc')->select(['id','user_id','created_at']))
+        ->addColumn('action', 'admin.invoice.action')
+        ->addColumn('title', 'admin.invoice.title')
+        ->make(true);
+    }
+    public function posted()
+    {
+        return view('admin.invoice.posted');
+    }
+    public function postedData()
+    {
+        return DataTables::eloquent(Invoice::with('user')->where('status' , 'posted')->orderBy('created_at', 'desc')->select(['id','user_id','created_at']))
         ->addColumn('action', 'admin.invoice.action')
         ->addColumn('title', 'admin.invoice.title')
         ->make(true);
@@ -30,7 +56,7 @@ class InvoiceController extends Controller
         $items = InvoiceItems::with('product')->where('invoice_id', $id)->get();
         foreach($items as $item)
         {
-            $total += $item->product->amount * $item->quantity;
+            $total += $item->amount * $item->quantity;
         }
         return view('admin.invoice.show' , compact('items','invoice','total'));
     }

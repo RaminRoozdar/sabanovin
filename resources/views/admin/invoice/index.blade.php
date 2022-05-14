@@ -29,22 +29,15 @@
           <div class="card card-default">
             <div class="card-header"> فاکتور ها
 
-                {{--  <a href="{{ route('admin.item.create') }}" class="btn btn-primary btn-sm pull-left"><i class="fa fa-plus-circle"></i> ایجاد مطلب جدید</a>  --}}
             </div>
 
-            <div class="card-body">
+            <div class="card-body ">
+                <div class="list-group">
+                    <a href="{{ route('admin.invoice.pendding') }}" class="list-group-item list-group-item-action">فاکتور های در حال بررسی</a>
+                    <a href="{{ route('admin.invoice.paid') }}" class="list-group-item list-group-item-action ">فاکتور های منتظر ارسال</a>
+                    <a href="{{ route('admin.invoice.posted') }}" class="list-group-item list-group-item-action">فاکتور های ارسال شده</a>
+                  </div>
 
-                <table class="table table-bordered data-table">
-                    <thead>
-                        <tr>
-                            <th>عنوان</th>
-                            <th>نام</th>
-                            <th width="100px">عملیات</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
             </div>
         </div>
 
@@ -57,48 +50,4 @@
 @stop
 @section('js')
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
-    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-
-    <script type="text/javascript">
-        $(function () {
-
-          var table = $('.data-table').DataTable({
-            processing: true,
-            serverSide: true,
-            responsive: true,
-            ajax: '{{ route('admin.invoice.data') }}',
-            columns: [
-                {data: 'title'},
-                {data: 'user.name'},
-                {data: 'action', orderable: false, searchable: false}
-            ],
-            oLanguage:{
-                "sEmptyTable":     "هیچ داده ای در جدول وجود ندارد",
-                "sInfo":           "نمایش _START_ تا _END_ از _TOTAL_ رکورد",
-                "sInfoEmpty":      "نمایش 0 تا 0 از 0 رکورد",
-                "sInfoFiltered":   "(فیلتر شده از _MAX_ رکورد)",
-                "sInfoPostFix":    "",
-                "sInfoThousands":  ",",
-                "sLengthMenu":     "نمایش _MENU_ رکورد",
-                "sLoadingRecords": "در حال بارگزاری...",
-                "sProcessing":     "در حال پردازش...",
-                "sSearch":         "جستجو:",
-                "sZeroRecords":    "رکوردی با این مشخصات پیدا نشد",
-                "oPaginate": {
-                    "sFirst":    "ابتدا",
-                    "sLast":     "انتها",
-                    "sNext":     "بعدی",
-                    "sPrevious": "قبلی"
-                },
-                "oAria": {
-                    "sSortAscending":  ": فعال سازی نمایش به صورت صعودی",
-                    "sSortDescending": ": فعال سازی نمایش به صورت نزولی"
-                }
-            }
-          });
-
-        });
-      </script>
 @endsection

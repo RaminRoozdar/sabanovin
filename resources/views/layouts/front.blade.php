@@ -25,8 +25,10 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css" rel="stylesheet">
 
+    @yield('head')
 
-@yield('css')
+
+    @yield('css')
 
 
 
@@ -39,8 +41,8 @@
              <div class="row">
                 <div class="col">
                     <a class="nav-link" href="/">
-                      <img src="{{asset('img/logo.png')}}" alt="صبانوین"></img>
-                      <h2 class="text-info m-0 d-inline h5">صبانوین</h2>
+                        <img height="60" width="150" src="{{asset('img/logo/logok.png')}}" alt="{{ settings()->get('SITE_TITLE') }}"></img>
+                      {{--  <h2 class="text-info m-0 d-inline h5">صبانوین</h2>  --}}
                     </a>
                 </div>
                 <div class="col">
@@ -82,6 +84,11 @@
                       <a href="{{route('login')}}" class="btn btn-sm btn-warning">
                         <i class="fa fa-user-o text-white"></i>
                      </a>
+                     @else
+                      &nbsp;
+                      <a href="{{route('dashboard')}}" class="btn btn-sm btn-warning">
+                        <i class="fa fa-user-o text-white"></i>
+                      </a>
                       @endguest
                       &nbsp;<a class="btn btn-sm btn-warning">
                         <i class="fa fa-shopping-cart align-middle text-white"></i></a>
