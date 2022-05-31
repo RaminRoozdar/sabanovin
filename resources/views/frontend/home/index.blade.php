@@ -9,6 +9,23 @@
 
     <title>{{ settings()->get('SITE_TITLE') }}</title>
 
+    <link rel="shortcut icon" href="{{ asset('img/logo/favicon.png') }}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('img/logo/favicon.png') }}">
+    <meta content="رامین روزدار" name="author" />
+    <meta itemprop="name" content="{{ settings()->get('SITE_TITLE') }}">
+    <meta property="og:title" content="سیستم مدیریت مشتری {{ settings()->get('SITE_TITLE') }}" />
+    <meta property="og:description" content="{{ settings()->get('SITE_DESCRIPTION') }}" />
+    <meta property="og:type" content="document" />
+    <meta property="og:url" content="{{ settings()->get('SITE_URI_SSL') }}" />
+    <meta property="og:image" content="{{ config('global.SITE_LOGO') }}" />
+    <meta property="og:site_name" content="سیستم مدیریت مشتری {{ settings()->get('SITE_TITLE') }}"/>
+
+    </ "link rel="canonical" href="https://sabanovin.com/">
+    </ "link rel="canonical" href="https://sabanovin.com/blog">
+    </ "link rel="canonical" href="https://sabanovin.com/shop">
+
+
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -19,10 +36,19 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    {{--  <style>
+        div.col a.nav-link img{
+            transition: transform .7s ease-in-out;
+        }
+        div.col a.nav-link img:hover{
+            transform: rotate(360deg);
+        }
+    </style>  --}}
+
     <script type='text/javascript'>
         window.$_DANACHAT_API || (function (d, w) {
             var r = $_DANACHAT_API = function (c) { r._.push(c); };
-            w.__danachat_app_base_url = '/Dana/';w.__danachat_host_url = 'http://crm.sabanovin.com';
+            w.__danachat_app_base_url = '/Dana/';w.__danachat_host_url = 'https://crm.sabanovin.com/';
             w.__danachat_account = 'E433FD9C3AE424C56FD4CCF8A5BE630256EC76F3D1A7C52B0B7B324C8255FA59C84308247C9A4C01';
             w.__danachat_widget = 'E433FD9C3AE424C56FD4CCF8A5BE630256EC76F3D1A7C52B0B7B324C8255FA59C84308247C9A4C01';
             w.__danachat_profile = 'E433FD9C3AE424C56FD4CCF8A5BE630256EC76F3D1A7C52B0B7B324C8255FA59C84308247C9A4C01';
@@ -37,13 +63,12 @@
 
 <body dir="rtl">
     <div id="app">
-       <div class="container-fluid bg-container">
-          <div class="container-xl" >
-
-             <div class="row">
+       <div class="container-fluid bg-container pr-0 pl-0 mr-0 ml-0">
+             <div class="row mr-0 ml-0">
                 <div class="col">
                     <a class="nav-link" href="/">
-                      <img height="60" width="150" src="{{asset('img/logo/logok.png')}}" alt="{{ settings()->get('SITE_TITLE') }}"></img>
+                      <img height="60" width="150" src="{{asset('img/logo/logoK.png')}}" alt="{{ settings()->get('SITE_TITLE') }}"></img>
+                      {{--  <img class="rounded-circle logo" height="150" width="150" src="{{asset('img/logo/logo4.png')}}" alt="{{ settings()->get('SITE_TITLE') }}"></img>  --}}
                       {{--  <h2 class="text-info m-0 d-inline h5">{{ settings()->get('SITE_TITLE') }}</h2>  --}}
                     </a>
                 </div>
@@ -64,8 +89,8 @@
                    </div>
                 </div>
               </div>
-             <div class="col mt-3">
-                <nav class="navbar navbar-light navbar-expand-lg" style="background: #1e49ab;">
+             <div class="col mt-3 pr-0 pl-0">
+                <nav class="navbar navbar-light navbar-expand-lg" style="background: #1e49ab; padding-left:33px">
                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                      <span class="navbar-toggler-icon"></span>
                      </button>
@@ -101,19 +126,19 @@
              </br>
              <div class="col">
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
+                    {{--  <ol class="carousel-indicators">
                         @foreach( $sliders as $slider )
                             <li data-target="#carouselExampleIndicators" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
                         @endforeach
-                    </ol>
+                    </ol>  --}}
                     <div class="carousel-inner" role="listbox">
                         @foreach( $sliders as $slider )
                             <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
                                 <a href="{{ $slider->link }}">
                                     <img class="d-block w-100 rounded" src="{{ Storage::url($slider->image) }}" alt="{{ $slider->title }}">
-                                    <div class="carousel-caption">
+                                    {{--  <div class="carousel-caption">
                                         <p class="text-white text-md-center">{{ $slider->title }}</p>
-                                    </div>
+                                    </div>  --}}
                                 </a>
                             </div>
                         @endforeach
@@ -144,7 +169,7 @@
                       @endforeach
                    </div>
               </div>
-          </div>
+
        </div>
         </br>
         </div>
@@ -159,25 +184,25 @@
               <div class="row">
                 <div class="col-sm-6 col-lg-4 mb-1">
                   <div class="card">
-                      <img src="{{asset('img/img3.png')}}" class="card-img-top" alt="...">
+                      <img src="{{asset('img/img3.png')}}" class="card-img-top" alt="پیام کوتاه">
                         <div class="card-footer card-footer-text">
-                          <a href="#" class="text-decoration-none h5"><small class="text-white">عنوان محصول مورد نظر</small></a>
+                          <a href="#" class="text-decoration-none h5"><small class="text-white">پیام کوتاه</small></a>
                         </div>
                   </div>
                 </div>
                 <div class="col-sm-6 col-lg-4 mb-1">
                   <div class="card">
-                    <img src="{{asset('img/img2.png')}}" class="card-img-top" alt="...">
+                    <img src="{{asset('img/img2.png')}}" class="card-img-top" alt="پرداخت یار">
                       <div class="card-footer card-footer-text">
-                        <a href="#" class="text-decoration-none h5"><small class="text-white">عنوان محصول مورد نظر</small></a>
+                        <a href="#" class="text-decoration-none h5"><small class="text-white"> پرداخت یار </small></a>
                       </div>
                   </div>
                 </div>
                 <div class="col-sm-6 col-lg-4 mb-1">
                   <div class="card">
-                    <img src="{{asset('img/img1.png')}}" class="card-img-top" alt="...">
+                    <img src="{{asset('img/img1.png')}}" class="card-img-top" alt="هدایت تراکنش">
                       <div class="card-footer card-footer-text">
-                        <a href="#" class="text-decoration-none h5"><small class="text-white">عنوان محصول مورد نظر</small></a>
+                        <a href="#" class="text-decoration-none h5"><small class="text-white"> هدایت تراکنش </small></a>
                       </div>
                    </div>
                 </div>
@@ -194,7 +219,11 @@
                   </span>
               </div>
 				  <p class="about-description my-20 text-muted text-justify">
-						لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                    شرکت فناوری صبانوین جام جم با نام تجاری صبانوین به طور تخصصی فعالیت خود را در زمینه ارائه درگاه های ارسال پیامک انبوه از سال 1390 آغاز کرد. این سامانه با اتصال به مرکز پيام‌ کوتاه شرکت ارتباطات سيار به عنوان نماینده اصلی اپراتورهای ١٠٠٠، ٢٠٠٠ و ٣٠٠٠شناخته شده و با بهره گیری از دانش و تخصص و انگیزه کادری مجرب به دنبال ارائه ایده‌های نوین تجاری در صنعت پيشرفته‌‌ پيام‌رسانی به مشتریان محترم می باشد .
+
+                    همچنین صبانوین در سال 1397 موفق به اخذ مجوز پرداخت یاری از بانک مرکزی وشاپرک گردید که به عنوان اولین شرکت در جنوب کشور بود که موفق به اخذ این مجوز گردید
+
+                    از سایر فعالیت های صبانوین به فعالیت در حوزه هدایت تراکنش میتوان اشاره کرد .
 				  </p>
                   <br>
 				  <a style="background:#1e49ab" href="{{ route('feedbacks') }}" class="btn btn-primary about-button">نظرات بیشتر</a>
@@ -269,7 +298,7 @@
 								        	</div>
 								        	<div class="footer-contact-item my-half">
 								          		<i class="fa fa-map-marker"></i>
-									          	{{ settings()->get('ADDRESS') }}
+									          	{{ settings()->get('ADDRESS') }} &nbsp; {{ toFarsiNumber(settings()->get('ZIP_CODE')) }}
 								        	</div>
 							        	</div>
                     </div>
@@ -295,9 +324,10 @@
                     </div>
                     <div class="col-md-6 mt5 mb-5">
                            <div class="footer-certificates d-flex align-items-center justify-content-center h-100">
-                               <img src="{{asset('img/enamad.png')}}">
-                               <img src="{{asset('img/samandehi.png')}}">
-							          	 </div>
+                            <img src="https://trustseal.enamad.ir/logo.aspx?id=75910&amp;p=qeOVMS61OBPTOUM8" alt="نماد الکترونیکی" onclick="window.open(&quot;https://trustseal.enamad.ir/Verify.aspx?id=75910&amp;p=qeOVMS61OBPTOUM8&quot;, &quot;Popup&quot;,&quot;toolbar=no, location=no, statusbar=no, menubar=no, scrollbars=1, resizable=0, top=30&quot;)" style="cursor:pointer" id="qeOVMS61OBPTOUM8">
+                            <img id='jxlzesgtjzpeapfuapfuesgt' style='cursor:pointer' onclick='window.open("https://logo.samandehi.ir/Verify.aspx?id=107550&p=rfthobpdjyoedshwdshwobpd", "Popup","toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0")' alt='logo-samandehi' src='https://logo.samandehi.ir/logo.aspx?id=107550&p=nbpdlymayndtujynujynlyma'/>
+
+					       </div>
                     </div>
                    </div>
 

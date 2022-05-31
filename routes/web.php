@@ -18,6 +18,7 @@ Auth::routes();
 
 Route::get('/', 'Frontend\HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home.welcome');
+Route::get('/test', 'TestController@test')->name('test');
 
 
 
@@ -57,7 +58,7 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::get('/add-to-cart/{id}', 'ProductController@addToCart')->name('addToCart');
     Route::patch('update-cart', 'ProductController@update')->name('update.cart');
     Route::delete('remove-from-cart', 'ProductController@remove')->name('remove.from.cart');
-    Route::get('/test', 'ProductController@test')->name('test');
+
 
     //order-cart
     Route::get('/cart/information', 'CartController@information')->name('information');

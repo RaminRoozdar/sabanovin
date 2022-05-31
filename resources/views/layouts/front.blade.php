@@ -12,7 +12,21 @@
     @yield('title')
 
     </title>
+    <link rel="shortcut icon" href="{{ asset('img/logo/favicon.png') }}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('img/logo/favicon.png') }}">
+    <meta content="رامین روزدار" name="author" />
+    <meta itemprop="name" content="{{ settings()->get('SITE_TITLE') }}">
+    <meta property="og:title" content="سیستم مدیریت مشتری {{ settings()->get('SITE_TITLE') }}" />
+    <meta property="og:description" content="{{ settings()->get('SITE_DESCRIPTION') }}" />
+    <meta name="description" content="{{ settings()->get('SITE_DESCRIPTION') }}" />
+    <meta property="og:type" content="document" />
+    <meta property="og:url" content="{{ settings()->get('SITE_URI_SSL') }}" />
+    <meta property="og:image" content="{{ config('global.SITE_LOGO') }}" />
+    <meta property="og:site_name" content="سیستم مدیریت مشتری {{ settings()->get('SITE_TITLE') }}"/>
 
+    <link rel="canonical" href="https://sabanovin.com/"/>
+    <link rel="canonical" href="https://sabanovin.com/blog"/>
+    <link rel="canonical" href="https://sabanovin.com/shop"/>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -36,9 +50,8 @@
 
 <body dir="rtl">
     <div id="app">
-       <div class="container-fluid bg-container">
-          <div class="container-xl" >
-             <div class="row">
+        <div class="container-fluid bg-container pr-0 pl-0 mr-0 ml-0">
+            <div class="row mr-0 ml-0">
                 <div class="col">
                     <a class="nav-link" href="/">
                         <img height="60" width="150" src="{{asset('img/logo/logok.png')}}" alt="{{ settings()->get('SITE_TITLE') }}"></img>
@@ -62,13 +75,13 @@
                    </div>
                 </div>
               </div>
-           <div class="col mt-3 pb-5">
-                <nav class="navbar navbar-light navbar-expand-lg" style="background: #1e49ab;">
+           <div class="col mt-3 pb-5 pr-0 pl-0">
+                <nav class="navbar navbar-light navbar-expand-lg" style="background: #1e49ab; padding-left:33px">
                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                      <span class="navbar-toggler-icon"></span>
                      </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav mr-auto">
+                  <ul class="navbar-nav mr-auto" style="margin-right:-35px !important">
                     @foreach ($menus as $menu)
                       <li class="mr-4">
                          <a class="text-white text-decoration-none" href="{{ $menu->link }}">{{$menu->title}}</a>
@@ -95,7 +108,6 @@
                 </div>
                 </nav>
             </div>
-        </div>
         </div>
         </br>
 
@@ -126,7 +138,7 @@
 								        	</div>
 								        	<div class="footer-contact-item my-half">
 								          		<i class="fa fa-map-marker"></i>
-									          	{{ settings()->get('ADDRESS') }}
+                                                  {{ settings()->get('ADDRESS') }} &nbsp; {{ toFarsiNumber(settings()->get('ZIP_CODE')) }}
 								        	</div>
 							        	</div>
                    </div>
