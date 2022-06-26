@@ -47,6 +47,9 @@
                         </div>
                         <br />   <br />   <br />   <br />   <br />   <br />
                     @endif
+                    <br>
+                    <br>
+                    <a class="btn btn-primary btn-sm" href="{{ route('dashboard') }}"> رفتن به پنل کاربری </a>
                     </div>
                 </div>
             </div>

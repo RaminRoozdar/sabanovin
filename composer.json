@@ -15,6 +15,7 @@
         "larabook/gateway": "^3.5",
         "laravel/framework": "^6.20.26",
         "laravel/tinker": "^2.5",
+        "maatwebsite/excel": "^3.1",
         "morilog/jalali": "3.*",
         "yajra/laravel-datatables-oracle": "^9.19"
     },

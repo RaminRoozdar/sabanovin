@@ -704,6 +704,8 @@ function settingMapper($type)
         'TWITTER'    => 'لینک توییتر',
         'LINKEDIN'    => 'لینک لینکدین',
         'FACEBOOK'    => 'لینک فیس بوک',
+        'SMS_FA_PRICE'    => 'قیمت پیامک فارسی LBS',
+        'SMS_EN_PRICE'    => 'قیمت پیامک انگلیسی LBS',
         'ADD_BLACKLIST'  => 'کلمه کلیدی اضافه به بلک لیست',
         'CANCEL_BLACKLIST'  => 'کلمه کلیدی حذف از بلک لیست',
         'SHARED_SERVICE_LINE_PRICE'  => 'هزینه خط اشتراکی - خدماتی',

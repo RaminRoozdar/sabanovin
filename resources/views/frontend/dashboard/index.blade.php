@@ -19,6 +19,12 @@
                         <div class="col-sm-6 col-md-6 col-6">
                             <a class="mb-1 btn btn-warning btn-block" href="{{ route('user.invoice') }}" ><i class="fa fa-newspaper-o"></i>   فاکتور های من  </a>
                         </div>
+                        <div class="col-sm-6 col-md-6 col-6">
+                            <a class="mb-1 btn btn-danger btn-block" href="{{ route('lbs.list') }}" ><i class="fa fa-envelope"></i>   درخواست های lbs  </a>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-6">
+                            <a class="mb-1 btn btn-success btn-block" href="#" ><i class="fa fa-usd"></i>   پرداخت های من  </a>
+                        </div>
                     </div>
                 </div>
             </div>

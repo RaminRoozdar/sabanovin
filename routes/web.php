@@ -25,11 +25,12 @@ Route::get('/test', 'TestController@test')->name('test');
 Route::group(['namespace' => 'Frontend'], function () {
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
+    Route::get('/lbs', 'LbsController@lbs')->name('lbs');
+
 
     //installments
     Route::get('/installments', 'HomeController@installments')->name('installments');
     Route::post('/installments', 'HomeController@computing')->name('computing');
-
 
     //user
     Route::get('/user/invoice', 'UserController@invoice')->name('user.invoice');
@@ -37,8 +38,6 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::get('/user/profile', 'UserController@profile')->name('user.profile');
     Route::post('/user/profile', 'UserController@store')->name('user.profile.store');
     Route::post('/cities', 'UserController@cities')->name('cities');
-
-
 
     Route::get('/page/{id}', 'PageController@index')->name('page');
     Route::get('/page/{id}/{slug}', 'PageController@slug')->name('page-slug');
@@ -50,7 +49,6 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::get('/article/{id}/{slug}', 'ArticleController@article')->name('articleView');
     Route::get('/item/{id}/{slug}', 'ItemController@index')->name('itemView');
 
-
     //product
     Route::get('/shop', 'ProductController@shop')->name('shop');
     Route::get('/product/view/{id}', 'ProductController@view')->name('product.view');
@@ -58,28 +56,51 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::get('/add-to-cart/{id}', 'ProductController@addToCart')->name('addToCart');
     Route::patch('update-cart', 'ProductController@update')->name('update.cart');
     Route::delete('remove-from-cart', 'ProductController@remove')->name('remove.from.cart');
-
-
     //order-cart
     Route::get('/cart/information', 'CartController@information')->name('information');
     Route::post('/cart/information', 'CartController@store_information')->name('store.information');
     Route::get('/cart/payment', 'CartController@payment')->name('payment');
     Route::get('/cart/payment/callback', 'CartController@callback')->name('callback');
 
-
-
-
-
-
-
 });
 
+Route::group(['middleware' => 'auth','namespace' => 'Frontend'], function () {
+    Route::post('/lbs', 'LbsController@insert')->name('lbs.insert');
+    Route::post('/lbs/payment/{id}', 'LbsController@payment')->name('lbs.payment');
+    Route::get('/lbs/payment/callback', 'LbsController@callback')->name('lbs.callback');
+    Route::get('/lbs/list', 'LbsController@list')->name('lbs.list');
+    Route::get('/lbs/list/data', 'LbsController@data')->name('lbs.list.data');
+
+});
 Route::group(['middleware' => 'admin','namespace' => 'Admin'], function () {
     Route::get('/admin/dashboard', 'DashboardController@index')->name('admin.dashboard');
 
     //user
     Route::get('/admin/user', 'UserController@index')->name('admin.user');
     Route::get('/admin/user/data', 'UserController@data')->name('admin.user.data');
+
+
+    //lbs
+    Route::get('/admin/lbs', 'LbsController@index')->name('admin.lbs');
+    Route::get('/admin/lbs/data', 'LbsController@data')->name('admin.lbs.data');
+    Route::get('/admin/lbs/show/{id}', 'LbsController@show')->name('admin.lbs.show');
+    Route::get('/admin/lbs/status/{id}', 'LbsController@status')->name('admin.lbs.status');
+    Route::get('/admin/lbs/location', 'LbsController@location')->name('admin.lbs.location');
+    Route::get('/admin/lbs/location/data', 'LbsController@locationData')->name('admin.lbs.locationData');
+    Route::post('/admin/lbs/location/store', 'LbsController@store')->name('admin.lbs.location.store');
+
+
+
+
+    //uploadimage
+    Route::get('/admin/uploader', 'UploadImageController@index')->name('admin.uploader');
+    Route::get('/admin/uploader/image', 'UploadImageController@image')->name('admin.uploader.image');
+    Route::get('/admin/uploader/data', 'UploadImageController@data')->name('admin.uploader.data');
+    Route::post('/admin/uploader/store', 'UploadImageController@store')->name('admin.uploader.store');
+    Route::get('/admin/uploader/file', 'UploadImageController@file')->name('admin.uploader.file');
+    Route::get('/admin/uploader/fileData', 'UploadImageController@fileData')->name('admin.uploader.fileData');
+    Route::post('/admin/uploader/fileStore', 'UploadImageController@fileStore')->name('admin.uploader.fileStore');
+
 
 
     //menu

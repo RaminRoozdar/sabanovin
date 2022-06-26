@@ -18,4 +18,13 @@ class InvoiceEnum {
     const STATUS_FAILED_TEXT = 'رد شده';
 
 
+
+    const STATUS_OK = 'ok';
+    const STATUS_OK_TEXT = 'پرداخت شده';
+
+    const STATUS_DONE = 'done';
+    const STATUS_DONE_TEXT = 'انجام شده';
+
+
+
 }

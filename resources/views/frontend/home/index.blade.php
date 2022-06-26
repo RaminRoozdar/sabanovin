@@ -9,9 +9,10 @@
 
     <title>{{ settings()->get('SITE_TITLE') }}</title>
 
-    <link rel="shortcut icon" href="{{ asset('img/logo/favicon.png') }}">
-    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('img/logo/favicon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('favicon.ico') }}">
     <meta content="رامین روزدار" name="author" />
+    <meta name="keywords" content="صبانوین, صبانوین جام جم, ارسال پیامک ,فروش کارتخوان,سامانه پیام کوتاه">
     <meta itemprop="name" content="{{ settings()->get('SITE_TITLE') }}">
     <meta property="og:title" content="سیستم مدیریت مشتری {{ settings()->get('SITE_TITLE') }}" />
     <meta property="og:description" content="{{ settings()->get('SITE_DESCRIPTION') }}" />
@@ -65,11 +66,13 @@
     <div id="app">
        <div class="container-fluid bg-container pr-0 pl-0 mr-0 ml-0">
              <div class="row mr-0 ml-0">
-                <div class="col">
+                <div class="col mt-1">
                     <a class="nav-link" href="/">
-                      <img height="60" width="150" src="{{asset('img/logo/logoK.png')}}" alt="{{ settings()->get('SITE_TITLE') }}"></img>
+                      <img height="100" width="200" src="{{asset('img/logo/13.png')}}" alt="{{ settings()->get('SITE_TITLE') }}"></img>
                       {{--  <img class="rounded-circle logo" height="150" width="150" src="{{asset('img/logo/logo4.png')}}" alt="{{ settings()->get('SITE_TITLE') }}"></img>  --}}
-                      {{--  <h2 class="text-info m-0 d-inline h5">{{ settings()->get('SITE_TITLE') }}</h2>  --}}
+                        {{--  <h1 class="text-info m-0 d-inline h5">{{ settings()->get('SITE_TITLE') }}</h1>  --}}
+                          <h1 class="text-info m-0 d-inline h5 invisible">صبانوین جام جم</h1>
+
                     </a>
                 </div>
                 <div class="col">
@@ -260,7 +263,7 @@
       <div class="container-fluid bg-white p-5">
        <div class="container">
          <h2 class="home-title m-0">
-					    <span>مشتریان {{ settings()->get('SITE_TITLE') }} </span>
+					    <span>مشتریان <strong> {{ settings()->get('SITE_TITLE') }} </strong> </span>
 			    </h2>
           <h3 class="home-subtitle mt-half mb-0 mt-2">برخی از مشتریان ما</h3>
 
@@ -340,7 +343,7 @@
 				          <div class="row align-items-center">
 						        <div class="col-sm-6 text-center text-sm-right mb-15 mb-sm-0">
 						      	   <div class="copyright-text float-right">
-							        	تمامی حقوق محفوظ است.
+							        	تمامی حقوق این سایت متعلق به <em>{{ settings()->get('SITE_TITLE') }}</em> می باشد.
 						       	   </div>
 						        </div>
 					        	<div class="col-sm-6">

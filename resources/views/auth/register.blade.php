@@ -1,5 +1,7 @@
 @extends('layouts.front')
-
+@section('title')
+ورود به سامانه
+@endsection
 @section('content')
 
 <div class="container">
@@ -54,7 +56,7 @@
                     <div class="form-group row mb-0">
                         <div class="col-md-8 offset-md-4">
                             <button type="submit" class="btn btn-primary btn-sm">
-                                عضویت به سایت
+                                عضویت در سایت
                             </button>
                             <a href="{{ route('login') }}" class="btn btn-sm btn-dark">ورود به سایت</a>
                         </div>

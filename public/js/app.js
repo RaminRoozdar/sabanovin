@@ -75762,6 +75762,10 @@ $(document).ready(function () {
     language: "fa",
     dir: "rtl"
   });
+  $('.select3').select2({
+    language: "fa",
+    dir: "rtl"
+  });
   $('.price').mask('#.##0', {
     reverse: true
   });

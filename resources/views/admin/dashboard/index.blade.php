@@ -22,14 +22,17 @@
                 <div class="row justify-content-center">
                     <div class="col-md-12 col-12">
                         <div class="row justify-content-center">
-                              
-
-
+                            <div class="col-sm-6 col-md-6 col-6">
+                                <a class="mb-1 btn btn-primary btn-block" href="{{ route('admin.uploader') }}" ><i class="fa fa-upload"></i>   آپلود سنتر  </a>
+                            </div>
+                            <div class="col-sm-6 col-md-6 col-6">
+                                <a class="mb-1 btn btn-warning btn-block" href="{{ route('admin.lbs') }}" ><i class="fa fa-location-arrow"></i>   سفارشات پیامک های lbs  </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-               
-            
+
+
             </div>
         </div>
       </div>

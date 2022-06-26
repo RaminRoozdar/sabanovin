@@ -36,4 +36,6 @@ class HomeController extends Controller
 
         return view('frontend.home.computing' , compact('cash_price' , 'prepayment' , 'count' , 'left_over','monthly_profit','total','check_price'));
     }
+
+
 }

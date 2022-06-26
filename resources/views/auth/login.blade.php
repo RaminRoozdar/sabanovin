@@ -1,6 +1,8 @@
 @extends('layouts.front')
 
-
+@section('title')
+ورود به سامانه
+@endsection
 @section('content')
 
     <div class="container">
@@ -44,6 +46,7 @@
                                 <button type="submit" class="btn btn-primary btn-sm">
                                     ورود به سایت
                                 </button>
+                                <a href="{{ route('register') }}" class="btn btn-danger btn-sm">ثبت نام</a>
                             </div>
                         </div>
                     </form>

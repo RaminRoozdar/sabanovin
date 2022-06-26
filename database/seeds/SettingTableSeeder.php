@@ -21,6 +21,8 @@ class SettingTableSeeder extends Seeder
         settings()->set('SUPPORT_TEL', '07132922');
         settings()->set('FAX', '07132922-2');
         settings()->set('ZIP_CODE', '71345/1135');
+        settings()->set('SMS_FA_PRICE', '50');
+        settings()->set('SMS_EN_PRICE', '100');
         settings()->set('WHATSAPP', 'https://wa/me/9337288808');
         settings()->set('TELEGRAM', 'https://t.me/RaminR1375');
         settings()->set('INSTAGRAM', 'https://instagram.com/raminroozdar');

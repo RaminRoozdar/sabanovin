@@ -44,6 +44,11 @@ $(document).ready(function() {
         dir: "rtl"
     });
 
+    $('.select3').select2({
+        language: "fa",
+        dir: "rtl"
+    });
+
     $('.price').mask('#.##0', {reverse: true});
     $('.price1').mask('#.##0', {reverse: true});
 

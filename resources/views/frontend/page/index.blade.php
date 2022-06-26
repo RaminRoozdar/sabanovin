@@ -6,6 +6,14 @@
     صفحه {{ $page->title }}
 @stop
 
+@section('css')
+<style>
+    p img{
+        width: 100%;
+        height: auto;
+    }
+</style>
+@endsection
 
 
 @section('content')

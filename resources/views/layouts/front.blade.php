@@ -12,8 +12,8 @@
     @yield('title')
 
     </title>
-    <link rel="shortcut icon" href="{{ asset('img/logo/favicon.png') }}">
-    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('img/logo/favicon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('favicon.ico') }}">
     <meta content="رامین روزدار" name="author" />
     <meta itemprop="name" content="{{ settings()->get('SITE_TITLE') }}">
     <meta property="og:title" content="سیستم مدیریت مشتری {{ settings()->get('SITE_TITLE') }}" />
@@ -54,8 +54,8 @@
             <div class="row mr-0 ml-0">
                 <div class="col">
                     <a class="nav-link" href="/">
-                        <img height="60" width="150" src="{{asset('img/logo/logok.png')}}" alt="{{ settings()->get('SITE_TITLE') }}"></img>
-                      {{--  <h2 class="text-info m-0 d-inline h5">صبانوین</h2>  --}}
+                        <img height="100" width="200" src="{{asset('img/logo/13.png')}}" alt="{{ settings()->get('SITE_TITLE') }}"></img>
+                        {{--  <h2 class="text-info m-0 d-inline h5">صبانوین</h2>  --}}
                     </a>
                 </div>
                 <div class="col">
@@ -164,11 +164,12 @@
 							        	</div>
                      </div>
                      <div class="col-md-6 mt5 mb-5">
-                           <div class="footer-certificates d-flex align-items-center justify-content-center h-100">
-                               <img src="{{asset('img/enamad.png')}}">
-                               <img src="{{asset('img/samandehi.png')}}">
-							          	 </div>
-                     </div>
+                        <div class="footer-certificates d-flex align-items-center justify-content-center h-100">
+                         <img src="https://trustseal.enamad.ir/logo.aspx?id=75910&amp;p=qeOVMS61OBPTOUM8" alt="نماد الکترونیکی" onclick="window.open(&quot;https://trustseal.enamad.ir/Verify.aspx?id=75910&amp;p=qeOVMS61OBPTOUM8&quot;, &quot;Popup&quot;,&quot;toolbar=no, location=no, statusbar=no, menubar=no, scrollbars=1, resizable=0, top=30&quot;)" style="cursor:pointer" id="qeOVMS61OBPTOUM8">
+                         <img id='jxlzesgtjzpeapfuapfuesgt' style='cursor:pointer' onclick='window.open("https://logo.samandehi.ir/Verify.aspx?id=107550&p=rfthobpdjyoedshwdshwobpd", "Popup","toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0")' alt='logo-samandehi' src='https://logo.samandehi.ir/logo.aspx?id=107550&p=nbpdlymayndtujynujynlyma'/>
+
+                        </div>
+                 </div>
                  </div>
 
                </div>

@@ -56,7 +56,7 @@ class LoginController extends Controller
             $field = filter_var($mobile, FILTER_VALIDATE_EMAIL) ? 'email' : 'mobile';
             $request->merge([$field => $mobile]);
             return $request->only($field, 'password');
-            
+
     }
     protected function redirectTo()
     {
